@@ -5,8 +5,7 @@
 read_sas_files <- function(directory) {
   filenames <- list.files(directory, pattern = '\\.sas7bdat$')
   paths <- file.path(directory, filenames)
-  # out <- furrr::future_map(paths, function(x) {
-  out <- purrr::map(paths, function(x) {
+  out <- lapply(paths, function(x) {
     dat <- haven::read_sas(x)
     names(dat) <- tolower(names(dat))
     return(dat)
