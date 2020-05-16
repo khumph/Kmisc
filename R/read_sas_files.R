@@ -20,13 +20,13 @@ read_sas_files <- function(directory) {
 #' Copies files from one directory into another, only copying files that have been updated.
 #' @param dir_in The directory with files to copy
 #' @param dir_out The directory to copy into. If this doesn't exist it will be created.
-#' @param glob Glob to match files. Defaults to all \code{.sas7bdat} files.
+#' @param ... Additional arugments passed to fs::dir_ls()
 #' @export
-cp_dat <- function(dir_in, dir_out, glob = "*.sas7bdat") {
-  paths_there <- fs::dir_ls(dir_in, glob = glob)
+cp_dat <- function(dir_in, dir_out, ...) {
+  paths_there <- fs::dir_ls(dir_in, ...)
 
   fs::dir_create(dir_out, recurse = TRUE)
-  paths_here <- fs::dir_ls(dir_out, glob = glob)
+  paths_here <- fs::dir_ls(dir_out, ...)
 
   files_there_names <- fs::path_file(paths_there)
   files_here_names <- fs::path_file(paths_here)
