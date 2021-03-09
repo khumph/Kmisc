@@ -4,14 +4,19 @@
 #' @param var_labs Retain the SAS variable labels?
 #' @export
 read_sas_file <- function(path, var_labs = FALSE) {
+  start_msg <- paste0("Reading ", basename(path), "...")
+  message(start_msg, appendLF = FALSE)
+  end_msg <- paste(" Done.")
   dat <- haven::read_sas(path)
   names(dat) <- tolower(names(dat))
   if (var_labs) {
+    message(end_msg)
     return(dat)
   }
   for (name in names(dat)) {
     attr(dat[[name]], "label") <- NULL
   }
+  message(end_msg)
   return(dat)
 }
 
