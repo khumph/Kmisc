@@ -1,6 +1,6 @@
 Package: Kmisc
 Title: Miscellaneous Functions
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: 
     person(given = "Kyle",
            family = "Humphrey",
@@ -13,4 +13,4 @@ Imports:
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
