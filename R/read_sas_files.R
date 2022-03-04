@@ -1,4 +1,6 @@
-#' Read in a single SAS file, converting names to lowercase and removing labels
+#' Read in a single SAS file
+#'
+#' Convert names to lowercase and optionally remove labels.
 #'
 #' @param path The path to a \code{.sas7bdat} file.
 #' @param var_labs Retain the SAS variable labels?
@@ -21,7 +23,7 @@ read_sas_file <- function(path, var_labs = FALSE) {
 }
 
 
-#' Read in all of the SAS files in a directory
+#' Read in all of the SAS files in a directory into a list
 #'
 #' @param directory The directory containing \code{.sas7bdat} files.
 #' @param var_labs Retain the SAS variable labels?
